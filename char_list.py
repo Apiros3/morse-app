@@ -2,10 +2,12 @@ import winsound as ws
 from time import *
 import random
 
-tone_len = [175, 500, 1500]
-last_word = ""
+tone_len = [200, 600, 800]
+last_word = [""]
 guessed = True
 char_type = 26
+char_length = 3
+rating_mode = 0
 
 def play_char(char):
     str = morsedict[char]
@@ -15,6 +17,15 @@ def play_char(char):
         else:
             ws.Beep(frequency=500, duration=tone_len[1])
     sleep(tone_len[2]/1000)
+
+def create_and_play_word(len) : 
+    tmpstr = ""
+    for i in range(len):
+        num = int(random.uniform(0, char_type))
+        tmpstr += chr(ord('A') + num)
+    for i in tmpstr:
+        play_char(i)
+    last_word[0] = tmpstr
 
 def play_template():
     tmp = ["Hello World"]
