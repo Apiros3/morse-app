@@ -2,10 +2,12 @@ import tkinter as tk
 import char_list as cl
 import stats as st
 
+
 # general info
 root = tk.Tk()
 root.title(" Morse App ")
 root.resizable(0,0)
+
 
 # some useful classes
 class Message:
@@ -121,6 +123,7 @@ def guess_game() :
         if (cl.guessed == False) :
             st.query(False, cl.rating_mode == 1)
             update_status()
+            character_message.update_message(cl.last_word[0])
         if (rating_mode_var == 0) :
             status_message.update_message("NOTE: RATED GUESS MODE")
         else :
@@ -165,6 +168,7 @@ def update_char_type(x):
     cl.char_type = x
 
 
+
 # Stat Frame
 stat_frame = Subpanel(0,0,"Status:").panel
 Infobox(0, 0, 3, 1, [["Rating"],["Streak"],["Session Sum"]], stat_frame)
@@ -199,6 +203,7 @@ Button(1,0,"Guess",lambda:guess_sound(),guess_frame)
 Button(1,1,"Play Game",lambda:guess_game(),guess_frame)
 Button(1,2,"Test Sound",lambda:play_sound(),guess_frame)
 
-st.init()
-update()
-root.mainloop()
+def run_frame():
+    st.init()
+    update()
+    root.mainloop()

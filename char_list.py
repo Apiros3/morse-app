@@ -2,12 +2,15 @@ import winsound as ws
 from time import *
 import random
 
+# initial settings
 tone_len = [200, 600, 800]
 last_word = [""]
 guessed = True
 char_type = 26
-char_length = 3
+char_length = 10
 rating_mode = 0
+
+
 
 def play_char(char):
     str = morsedict[char]

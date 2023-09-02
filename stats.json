@@ -1,1 +1,14 @@
-
+{
+    "rating": {
+        "current": 0,
+        "maximum": 0
+    },
+    "streak": {
+        "current": 3,
+        "maximum": 7
+    },
+    "total": {
+        "AC": 1,
+        "WA": 0
+    }
+}
